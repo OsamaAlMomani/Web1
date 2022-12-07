@@ -5,14 +5,14 @@ using IGames.Data;
 using DataAccess.DataInterface;
 using DataAccess.DataImplemntation;
 using Microsoft.Extensions.DependencyInjection;
-using IGames.DataAccess.Data.ApplicationDbContext;
+//using IGames.DataAccess.Data.ApplicationDbContext;
 using DataAccess.Data.ApplicationDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<product>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("product") ?? throw new InvalidOperationException("Connection string 'product' not found.")));
-builder.Services.AddDbContext<cs>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("cs") ?? throw new InvalidOperationException("Connection string 'cs' not found.")));
+//builder.Services.AddDbContext<cs>(options =>
+  //  options.UseSqlServer(builder.Configuration.GetConnectionString("cs") ?? throw new InvalidOperationException("Connection string 'cs' not found.")));
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
