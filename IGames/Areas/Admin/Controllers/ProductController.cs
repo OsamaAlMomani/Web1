@@ -1,6 +1,7 @@
 ﻿using DataAccess.DataInterface;
 using IGames.DataInterface;
 using Microsoft.AspNetCore.Mvc;
+using RModel.Models;
 
 namespace IGames.Areas.Admin.Controllers
 {
