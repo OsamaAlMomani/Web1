@@ -5,8 +5,6 @@ using IGames.Data;
 using DataAccess.DataInterface;
 using DataAccess.DataImplemntation;
 using Microsoft.Extensions.DependencyInjection;
-//using IGames.DataAccess.Data.ApplicationDbContext;
-using DataAccess.Data.ApplicationDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<product>(options =>
