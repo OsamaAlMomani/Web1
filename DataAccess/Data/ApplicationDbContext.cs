@@ -13,7 +13,7 @@ namespace IGames.Data
         {
         }
         public DbSet<Category> categories { get; set; }
-        public DbSet<CoverType> covertpye { get; set; }
+        public DbSet<CoverType> covertype { get; set; }
         public DbSet<Product> products { get; set; }    
 
     }

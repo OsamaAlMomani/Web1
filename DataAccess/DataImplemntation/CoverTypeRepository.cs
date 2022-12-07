@@ -19,7 +19,7 @@ namespace DataAccess.DataImplemntation
 
         public void Update(CoverType Cover)
         {
-            _db.covertpye.Update(Cover);
+            _db.covertype.Update(Cover);
         }
     }
 }

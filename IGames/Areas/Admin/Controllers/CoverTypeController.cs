@@ -3,11 +3,9 @@ using IGames.Data;
 using IGames.DataInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using RModel.Models;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-
-namespace IGames.Areas.Admian.Controllers
+namespace IGames.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CoverTypeController : Controller

@@ -60,7 +60,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("covertpye");
+                    b.ToTable("covertype");
                 });
 
             modelBuilder.Entity("RModel.Models.Product", b =>

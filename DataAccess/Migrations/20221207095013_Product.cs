@@ -5,23 +5,38 @@
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class ProductCC : Migration
+    public partial class Product : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_CoverType",
-                table: "CoverType");
+            migrationBuilder.CreateTable(
+                name: "categories",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DisplayOrder = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_categories", x => x.ID);
+                });
 
-            migrationBuilder.RenameTable(
-                name: "CoverType",
-                newName: "covertpye");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_covertpye",
-                table: "covertpye",
-                column: "Id");
+            migrationBuilder.CreateTable(
+                name: "covertype",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_covertype", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "products",
@@ -51,9 +66,9 @@ namespace DataAccess.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_products_covertpye_CoverTypeID",
+                        name: "FK_products_covertype_CoverTypeID",
                         column: x => x.CoverTypeID,
-                        principalTable: "covertpye",
+                        principalTable: "covertype",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -75,18 +90,11 @@ namespace DataAccess.Migrations
             migrationBuilder.DropTable(
                 name: "products");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_covertpye",
-                table: "covertpye");
+            migrationBuilder.DropTable(
+                name: "categories");
 
-            migrationBuilder.RenameTable(
-                name: "covertpye",
-                newName: "CoverType");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_CoverType",
-                table: "CoverType",
-                column: "Id");
+            migrationBuilder.DropTable(
+                name: "covertype");
         }
     }
 }

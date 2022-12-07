@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using IGames.DataInterface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IGames.DataInterface;
 
 namespace DataAccess.DataInterface
 {

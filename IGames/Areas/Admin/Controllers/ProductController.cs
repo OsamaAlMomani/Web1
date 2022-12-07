@@ -5,18 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 namespace IGames.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoryController : Controller
+    public class ProductController : Controller
     {
-        private readonly ICategoryRepository _db;
+        private readonly IProductRepository _db;
 
-        public CategoryController(ICategoryRepository db)
+        public ProductController(IProductRepository db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Category> objectCategories = _db.GetAll();
+            IEnumerable<Product> objectCategories = _db.GetAll();
             return View(objectCategories);
         }
         //get
@@ -27,9 +27,9 @@ namespace IGames.Areas.Admin.Controllers
         //post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(Product obj)
         {
-            if (obj.Name == obj.DisplayOrder.ToString())
+            if (obj.Name == obj.Name.ToString())
             {
                 ModelState.AddModelError("name", "The name cant be same as DisplayOrder number, please try again.");
             }
@@ -58,9 +58,9 @@ namespace IGames.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult edit(Category obj)
+        public IActionResult edit(Product obj)
         {
-            if (obj.Name == obj.DisplayOrder.ToString())
+            if (obj.Name == obj.Name.ToString())
             {
                 ModelState.AddModelError("name", "The name cant be same as DisplayOrder number, please try again.");
             }
@@ -84,7 +84,7 @@ namespace IGames.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(Category obj)
+        public IActionResult Delete(Product obj)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace IGames.Areas.Admin.Controllers
         }
         [HttpDelete]
         [ValidateAntiForgeryToken]
-        public IActionResult ClearAll(Category obj)
+        public IActionResult ClearAll(Product obj)
         {
             return View();
         }
